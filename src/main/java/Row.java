@@ -7,6 +7,16 @@ public class Row {
         this.size = size;
     }
 
+    public Field moveUp(Field field){
+       Field result = null;
+       return result;
+    }
+
+    public Field moveDown(Field field){
+       Field result = null;
+       return result;
+    }
+
     public Cell getCell() {
         return cell;
     }

@@ -1,8 +1,10 @@
 public class Cell {
     private int value;
 
-    public Cell(int value){
-        this.value = value;
+    public Cell(int value) {
+        if (value < 0 || value % 2 != 0)
+            throw new IllegalArgumentException();
+            this.value = value;
     }
 
     public int getValue() {
@@ -11,6 +13,16 @@ public class Cell {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public static Cell add(Cell first, Cell second) {
+        if (first.value == second.value) {
+            second.value += first.value;
+            first.value = 0;
+        } else if (second.value == 0 && first.value != 0) {
+            second.value = first.value;
+        }
+        return second;
     }
 
     @Override
