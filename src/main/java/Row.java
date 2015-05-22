@@ -4,9 +4,8 @@ public class Row {
     private Cell[] cell;
     private int size;
 
-    public Row(Cell[] cell, int size) {
+    public Row(Cell[] cell) {
         this.cell = cell;
-        this.size = size;
     }
 
     public static Row moveUp(Row rowFirst, Row rowSecond) {
@@ -16,7 +15,7 @@ public class Row {
         return rowFirst;
     }
 
-    public Row moveDown(Row rowFirst, Row rowSecond) {
+    public static Row moveDown(Row rowFirst, Row rowSecond) {
         for (int i = rowFirst.cell.length - 1; i >= 0; i--) {
             Cell.add(rowFirst.cell[i], rowSecond.cell[i]);
         }
@@ -31,21 +30,20 @@ public class Row {
         this.cell = cell;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
+    public static int getSize(Row row) {
+        return row.cell.length;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Row row = (Row) o;
+
         if (size != row.size) return false;
         return Arrays.equals(cell, row.cell);
+
     }
 
     @Override
