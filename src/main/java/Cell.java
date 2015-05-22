@@ -22,6 +22,7 @@ public class Cell {
             first.value = 0;
         } else if (second.value == 0 && first.value != 0) {
             second.value = first.value;
+            first.value = 0;
         }
         return second;
     }
