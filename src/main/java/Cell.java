@@ -2,9 +2,10 @@ public class Cell {
     private int value;
 
     public Cell(int value) {
-        if (value < 0 || value % 2 != 0)
-            throw new IllegalArgumentException();
+        if (value == 0 || value == 2 || value % 4 == 0)
             this.value = value;
+        else
+            throw new IllegalArgumentException();
     }
 
     public int getValue() {
@@ -25,15 +26,18 @@ public class Cell {
         return second;
     }
 
+    public static boolean isEmpty(Cell cell) {
+        if (cell.value == 0)
+            return true;
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Cell cell = (Cell) o;
-
         return value == cell.value;
-
     }
 
     @Override
