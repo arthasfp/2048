@@ -1,27 +1,31 @@
+import java.util.Arrays;
+
 public class Row {
-    private Cell cell;
+    private Cell[] cell;
     private int size;
 
-    public Row(Cell cell, int size){
+    public Row(Cell[] cell, int size) {
         this.cell = cell;
         this.size = size;
     }
 
-    public Field moveUp(Field field){
-       Field result = null;
-       return result;
+    public Row moveUp(Row rowFirst, Row rowSecond) {
+        for (int i = size; i > 0 ; i--) {
+            Cell.add(rowFirst.cell[i], rowSecond.cell[i]);
+        }
+        return rowSecond;
     }
 
-    public Field moveDown(Field field){
-       Field result = null;
-       return result;
+    public Row moveDown(Field field) {
+        Row result = null;
+        return result;
     }
 
-    public Cell getCell() {
+    public Cell[] getCell() {
         return cell;
     }
 
-    public void setCell(Cell cell) {
+    public void setCell(Cell[] cell) {
         this.cell = cell;
     }
 
@@ -33,30 +37,5 @@ public class Row {
         this.size = size;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Row row = (Row) o;
-
-        if (size != row.size) return false;
-        return !(cell != null ? !cell.equals(row.cell) : row.cell != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = cell != null ? cell.hashCode() : 0;
-        result = 31 * result + size;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Row{" +
-                "cell=" + cell +
-                ", size=" + size +
-                '}';
-    }
 }
