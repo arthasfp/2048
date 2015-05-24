@@ -1,36 +1,39 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+
 
 public class Column {
-    private Cell[] cell;
+    private ArrayList <Cell> cell = new ArrayList<Cell>();
     private int size;
 
-    public Column(Cell[] cell) {
-        this.cell = cell;
+    public Column(int ... value) {
+        for (int i : value) {
+            cell.add(new Cell(i));
+        }
     }
 
     public static Column moveLeft(Column colFirst, Column colSecond) {
-        for (int i = colFirst.cell.length - 1; i >= 0; i--) {
-            Cell.add(colSecond.cell[i], colFirst.cell[i]);
+        for (int i = colFirst.cell.size() - 1; i >= 0; i--) {
+            Cell.add(colSecond.cell.get(i), colFirst.cell.get(i));
         }
         return colFirst;
     }
 
     public static Column moveRight(Column colFirst, Column colSecond) {
-        for (int i = colFirst.cell.length - 1; i >= 0; i--) {
-            Cell.add(colFirst.cell[i], colSecond.cell[i]);
+        for (int i = colFirst.cell.size() - 1; i >= 0; i--) {
+            Cell.add(colFirst.cell.get(i), colSecond.cell.get(i));
         }
         return colSecond;
     }
 
     public static int getSize(Column column) {
-        return column.cell.length;
+        return column.cell.size();
     }
 
-    public Cell[] getCell() {
+    public ArrayList <Cell> getCell() {
         return cell;
     }
 
-    public void setCell(Cell[] cell) {
+    public void setCell(ArrayList <Cell> cell) {
         this.cell = cell;
     }
 
@@ -38,14 +41,17 @@ public class Column {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Column column = (Column) o;
+
         if (size != column.size) return false;
-        return Arrays.equals(cell, column.cell);
+        return !(cell != null ? !cell.equals(column.cell) : column.cell != null);
+
     }
 
     @Override
     public int hashCode() {
-        int result = cell != null ? Arrays.hashCode(cell) : 0;
+        int result = cell != null ? cell.hashCode() : 0;
         result = 31 * result + size;
         return result;
     }
@@ -53,7 +59,7 @@ public class Column {
     @Override
     public String toString() {
         return "Column{" +
-                "cell=" + Arrays.toString(cell) +
+                "cell=" + cell +
                 ", size=" + size +
                 '}';
     }
