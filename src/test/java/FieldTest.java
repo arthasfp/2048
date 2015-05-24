@@ -28,21 +28,6 @@ public class FieldTest {
     }
 
     @Test
-    public void testGetPositionInRow() throws Exception {
-
-    }
-
-    @Test
-    public void testGetPositionInColumn() throws Exception {
-
-    }
-
-    @Test
-    public void testAddTwoInRandomCell() throws Exception {
-
-    }
-
-    @Test
     public void testMoveAllRowsUp() throws Exception {
 
     }
