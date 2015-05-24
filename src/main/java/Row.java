@@ -1,37 +1,40 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Row {
-    private Cell[] cell;
+    private ArrayList<Cell> cell;
     private int size;
 
-    public Row(Cell[] cell) {
-        this.cell = cell;
+    public Row(int...value)
+    {
+        for (int i : value) {
+          cell.add(new Cell(i));
+       }
     }
 
     public static Row moveUp(Row rowFirst, Row rowSecond) {
-        for (int i = rowFirst.cell.length - 1; i >= 0; i--) {
-            Cell.add(rowSecond.cell[i], rowFirst.cell[i]);
+        for (int i = rowFirst.cell.size() - 1; i >= 0; i--) {
+            Cell.add(rowSecond.cell.get(i), rowFirst.cell.get(i));
         }
         return rowFirst;
     }
 
     public static Row moveDown(Row rowFirst, Row rowSecond) {
-        for (int i = rowFirst.cell.length - 1; i >= 0; i--) {
-            Cell.add(rowFirst.cell[i], rowSecond.cell[i]);
+        for (int i = rowFirst.cell.size() - 1; i >= 0; i--) {
+            Cell.add(rowFirst.cell.get(i), rowSecond.cell.get(i));
         }
         return rowSecond;
     }
 
-    public Cell[] getCell() {
+    public ArrayList <Cell> getCell() {
         return cell;
     }
 
-    public void setCell(Cell[] cell) {
+    public void setCell(ArrayList <Cell> cell) {
         this.cell = cell;
     }
 
     public static int getSize(Row row) {
-        return row.cell.length;
+        return row.cell.size();
     }
 
     @Override
@@ -42,13 +45,13 @@ public class Row {
         Row row = (Row) o;
 
         if (size != row.size) return false;
-        return Arrays.equals(cell, row.cell);
+        return !(cell != null ? !cell.equals(row.cell) : row.cell != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = cell != null ? Arrays.hashCode(cell) : 0;
+        int result = cell != null ? cell.hashCode() : 0;
         result = 31 * result + size;
         return result;
     }
@@ -56,7 +59,7 @@ public class Row {
     @Override
     public String toString() {
         return "Row{" +
-                "cell=" + Arrays.toString(cell) +
+                "cell=" + cell +
                 ", size=" + size +
                 '}';
     }

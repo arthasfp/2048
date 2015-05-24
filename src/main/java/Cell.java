@@ -28,7 +28,7 @@ public class Cell {
     }
 
     public static boolean isEmpty(Cell cell) {
-        if (cell.value == 0)
+        if (cell == null)
             return true;
         return false;
     }

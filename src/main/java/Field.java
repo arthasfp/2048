@@ -30,7 +30,7 @@ public class Field {
     public Cell[][] moveAllRowsUp(Cell[][] cell){
         for (int i = 0; i < cell.length; i++) {
             for (int j = 0; j < cell.length; j++) {
-                Row.moveUp(new Row(new Cell[]{cell[i][j]}),new Row(new Cell[]{cell[i][j]}));
+//                Row.moveUp(new Row(new Cell[]{cell[i][j]}),new Row(new Cell[]{cell[i][j]}));
             }
 
         }

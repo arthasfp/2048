@@ -2,14 +2,29 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Sergii on 23.05.2015.
- */
+
 public class FieldTest {
 
     @Test
-    public void testSetField() throws Exception {
+    public void testSetField_set_with_positive_value() throws Exception {
+        Field field = new Field();
+        Cell[][] test = field.setField(5);
+        Cell[][] expected = new Cell[5][5];
+        assertArrayEquals(expected, test);
+    }
 
+    @Test
+    public void testSetField_set_with_zero_value() throws Exception {
+        Field field = new Field();
+        Cell[][] test = field.setField(0);
+        Cell[][] expected = new Cell[0][0];
+        assertArrayEquals(expected, test);
+    }
+
+    @Test(expected = NegativeArraySizeException.class)
+    public void testSetField() throws Exception {
+        Field field = new Field();
+        Cell[][] test = field.setField(-5);
     }
 
     @Test
