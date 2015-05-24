@@ -13,16 +13,16 @@ public class TheGame2048 {
             String value = scanner.next();
             if (value.equals("W")) {
                 System.out.println("You moved everything up");
-                gameField.moveAllRowsUp(gameField.getCells());
+                gameField.moveAllRowsUp(gameField.getRows());
             } else if (value.equals("S")) {
                 System.out.println("You moved everything down");
-                gameField.moveAllRowsDown(gameField.getCells());
+                gameField.moveAllRowsDown(gameField.getRows());
             } else if (value.equals("A")) {
                 System.out.println("You moved everything left");
-                gameField.moveAllColumnsLeft(gameField.getCells());
+                gameField.moveAllColumnsLeft(gameField.getColumns());
             } else if (value.equals("D")) {
                 System.out.println("You moved everything right");
-                gameField.moveAllColumnsRight(gameField.getCells());
+                gameField.moveAllColumnsRight(gameField.getColumns());
             }
 
         }
