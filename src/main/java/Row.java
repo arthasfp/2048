@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Row {
-    private ArrayList<Cell> cell;
+    private ArrayList<Cell> cell = new ArrayList<Cell>();
     private int size;
 
     public Row(int...value)

@@ -14,7 +14,7 @@ public class RowTest {
         assertEquals(expected, result);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IndexOutOfBoundsException.class)
     public void testMoveUp_with_two_arrays_of_cells_with_different_size() throws Exception {
         Row result = Row.moveUp(new Row(2,0,8), new Row(2));
     }
@@ -31,14 +31,14 @@ public class RowTest {
         assertEquals(expected, result);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IndexOutOfBoundsException.class)
     public void testMoveDown_with_two_arrays_of_cells_with_different_size() throws Exception {
         Row result = Row.moveDown(new Row(2,0,8), new Row(2));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testMoveDown_with_two_arrays_of_cells_with_one_negative_value() throws Exception {
-        Row result = Row.moveDown(new Row(2,0,8), new Row(-2, 4, 16));
+        Row result = Row.moveDown(new Row(2, 0, 8), new Row(-2, 4, 16));
     }
 
     @Test
