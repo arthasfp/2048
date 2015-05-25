@@ -155,10 +155,16 @@ public class Field {
 
     @Override
     public String toString() {
-        return "Field{" +
-                "cells=" + Arrays.toString(cells) +
-                ", rows=" + Arrays.toString(rows) +
-                ", columns=" + Arrays.toString(columns) +
-                '}';
+        String result = "";
+        for (int i = 0; i < cells.length ; i++) {
+            result += "\n";
+            for (int j = 0; j < cells.length; j++) {
+                result += " " + cells[i][j];
+
+            }
+        }
+
+
+        return result;
     }
 }
