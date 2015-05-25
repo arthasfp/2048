@@ -8,6 +8,7 @@ public class Row {
     {
         for (int i : value) {
           cell.add(new Cell(i));
+          size++;
        }
     }
 

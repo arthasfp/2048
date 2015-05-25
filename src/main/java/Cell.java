@@ -17,10 +17,18 @@ public class Cell {
     }
 
     public static Cell add(Cell first, Cell second) {
-        if (first.value == second.value) {
+        if (first == null && second == null) {
+            first = new Cell(0);
+            second = new Cell(0);
+        } else if (second != null && first == null) {
+            first = new Cell(0);
+            first.value = second.value;
+            second.value = 0;
+        } else if (first.equals(second)) {
             second.value += first.value;
             first.value = 0;
-        } else if (second.value == 0 && first.value != 0) {
+        } else if (second == null && first != null) {
+            second = new Cell(0);
             second.value = first.value;
             first.value = 0;
         }
@@ -28,7 +36,7 @@ public class Cell {
     }
 
     public static boolean isEmpty(Cell cell) {
-        if (cell == null)
+        if (cell == null || cell.value == 0)
             return true;
         return false;
     }
