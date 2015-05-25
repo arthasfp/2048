@@ -33,15 +33,15 @@ public class Field {
 
     public Cell[][] moveAllRowsUp(Row[] rows) {
         for (int i = 0; i < rows.length; i++) {
-           if(i + 1 <= rows.length)
-           Row.moveUp(rows[i], rows[i+1]);
+            if (i + 1 <= rows.length)
+                Row.moveUp(rows[i], rows[i + 1]);
         }
         return null;
     }
 
     public Cell[][] moveAllRowsDown(Row[] rows) {
         for (int i = 0; i < rows.length; i++) {
-            if(i + 1 <= rows.length)
+            if (i + 1 <= rows.length)
                 Row.moveDown(rows[i], rows[i + 1]);
         }
         return null;
@@ -49,16 +49,16 @@ public class Field {
 
     public Cell[][] moveAllColumnsLeft(Column[] columns) {
         for (int i = 0; i < columns.length; i++) {
-            if(i + 1 <= columns.length)
-                Column.moveLeft(columns[i], columns[i+1]);
+            if (i + 1 <= columns.length)
+                Column.moveLeft(columns[i], columns[i + 1]);
         }
         return null;
     }
 
     public Cell[][] moveAllColumnsRight(Column[] columns) {
         for (int i = 0; i < columns.length; i++) {
-            if(i + 1 <= columns.length)
-                Column.moveRight(columns[i], columns[i+1]);
+            if (i + 1 <= columns.length)
+                Column.moveRight(columns[i], columns[i + 1]);
         }
         return null;
     }
@@ -99,7 +99,13 @@ public class Field {
         this.cells = cells;
     }
 
-    public Row[] getRows() {
+    public Row[] getRows(Cell[][] cells) {
+        Row[] rows = new Row[cells.length];
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                rows[i] = new Row(cells[i][j].getValue());
+            }
+        }
         return rows;
     }
 
@@ -107,7 +113,13 @@ public class Field {
         this.rows = rows;
     }
 
-    public Column[] getColumns() {
+    public Column[] getColumns(Cell[][] cells) {
+        Column[] columns = new Column[cells.length];
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                columns[i] = new Column(cells[i][j].getValue());
+            }
+        }
         return columns;
     }
 
