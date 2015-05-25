@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public class Row {
     private ArrayList<Cell> cell = new ArrayList<Cell>();
-    private int size;
+
 
     public Row(int...value)
     {
         for (int i : value) {
           cell.add(new Cell(i));
-          size++;
+
        }
     }
 
@@ -34,10 +34,6 @@ public class Row {
         this.cell = cell;
     }
 
-    public static int getSize(Row row) {
-        return row.cell.size();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -45,23 +41,19 @@ public class Row {
 
         Row row = (Row) o;
 
-        if (size != row.size) return false;
         return !(cell != null ? !cell.equals(row.cell) : row.cell != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = cell != null ? cell.hashCode() : 0;
-        result = 31 * result + size;
-        return result;
+        return cell != null ? cell.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "Row{" +
                 "cell=" + cell +
-                ", size=" + size +
                 '}';
     }
 }

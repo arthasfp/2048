@@ -6,6 +6,7 @@ public class TheGame2048 {
         Scanner scanner = new Scanner(System.in);
         Field gameField = new Field();
         gameField.setField(5);
+        gameField.addTwoInRandomCell(gameField.getCells());
         Row[] rows = gameField.getRows(gameField.getCells());
         Column[] columns = gameField.getColumns(gameField.getCells());
         System.out.println(" Push W to move all field up!\n Push S to move all field down!\n" +

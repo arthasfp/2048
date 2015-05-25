@@ -41,15 +41,4 @@ public class RowTest {
         Row result = Row.moveDown(new Row(2, 0, 8), new Row(-2, 4, 16));
     }
 
-    @Test
-    public void testGetSize_with_few_values_in_array_of_cells() throws Exception {
-        int result = Row.getSize(new Row(2, 0, 8));
-        assertEquals(3, result);
-    }
-
-    @Test
-    public void testGetSize_with_empty_array_of_cells() throws Exception {
-        int result = Row.getSize(new Row());
-        assertEquals(0, result);
-    }
 }
