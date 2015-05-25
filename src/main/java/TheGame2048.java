@@ -6,12 +6,12 @@ public class TheGame2048 {
         Scanner scanner = new Scanner(System.in);
         Field gameField = new Field();
         gameField.setField(5);
-        gameField.addTwoInRandomCell(gameField.getCells());
         Row[] rows = gameField.getRows(gameField.getCells());
         Column[] columns = gameField.getColumns(gameField.getCells());
         System.out.println(" Push W to move all field up!\n Push S to move all field down!\n" +
                 " Push A to move all field left!\n Push D to move all field right!");
         while (!gameField.gameOverWithWinner(rows) || !gameField.realGameOver(rows)) {
+            gameField.addTwoInRandomCell(gameField.getCells());
             String value = scanner.next();
             if (value.equals("W")) {
                 System.out.println("You moved everything up");

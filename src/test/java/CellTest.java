@@ -29,7 +29,7 @@ public class CellTest {
 
     @Test
     public void testAdd_with_second_empty_value() throws Exception {
-        Cell result = Cell.add(new Cell(4), new Cell(0));
+        Cell result = Cell.add(new Cell(0), new Cell(4));
         Cell expected = new Cell(4);
         assertEquals(expected, result);
     }
