@@ -88,11 +88,6 @@ public class LogicsFor2048 {
         return temp;
     }
 
-    public Cell[][] addTwoInRandomCell(Cell[][] cell) {
-        if (Cell.isEmpty(cell[getPositionInRow(cell)][getPositionInColumn(cell)]))
-            cell[getPositionInRow(cell)][getPositionInColumn(cell)] = new Cell(2);
-        return cell;
-    }
 
 
     public boolean gameOverWithWinner(Row[] rows) {
@@ -111,14 +106,14 @@ public class LogicsFor2048 {
 
     public boolean realGameOver(Row[] rows) {
         for (int i = 0; i < rows.length; i++) {
-            return Cell.isEmpty(rows[i].getCell().get(i));
+            return isEmpty(rows[i].getCell().get(i));
         }
         return false;
     }
 
     public boolean realGameOver(Column[] columns) {
         for (int i = 0; i < columns.length; i++) {
-            return Cell.isEmpty(columns[i].getCell().get(i));
+            return isEmpty(columns[i].getCell().get(i));
         }
         return false;
     }
