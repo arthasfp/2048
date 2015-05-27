@@ -12,20 +12,6 @@ public class Row {
        }
     }
 
-    public static Row moveUp(Row rowFirst, Row rowSecond) {
-        for (int i = rowFirst.cell.size() - 1; i >= 0; i--) {
-            Cell.add(rowSecond.cell.get(i), rowFirst.cell.get(i));
-        }
-        return rowFirst;
-    }
-
-    public static Row moveDown(Row rowFirst, Row rowSecond) {
-        for (int i = rowFirst.cell.size() - 1; i >= 0; i--) {
-            Cell.add(rowFirst.cell.get(i), rowSecond.cell.get(i));
-        }
-        return rowSecond;
-    }
-
     public ArrayList <Cell> getCell() {
         return cell;
     }

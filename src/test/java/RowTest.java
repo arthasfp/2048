@@ -10,7 +10,7 @@ public class RowTest {
     @Test
     public void testMoveUp_with_two_possitive_arrays_of_cells() throws Exception {
         Row result = Row.moveUp(new Row(2, 0, 8), new Row(2, 4, 16));
-        Row expected = new Row(4, 4, 8);
+        Row expected = new Row(4, 0, 8);
         assertEquals(expected, result);
     }
 
