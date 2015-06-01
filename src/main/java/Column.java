@@ -9,8 +9,9 @@ public class Column {
     public Column(int... values) {
         cells = new Cell[values.length];
         int temp = 0;
+        while (temp < cells.length) {
         for (int value : values) {
-            while (temp < cells.length) {
+
                 cells[temp++] = new Cell(value);
             }
         }
@@ -48,4 +49,6 @@ public class Column {
                 "cells=" + Arrays.toString(cells) +
                 '}';
     }
+
+
 }
