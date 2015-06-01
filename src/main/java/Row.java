@@ -1,18 +1,18 @@
 import java.util.Arrays;
 
-/**
- * Created by Sergii on 27.05.2015.
- */
+
 public class Row {
     private Cell[] cells;
 
     public Row(int... values) {
         cells = new Cell[values.length];
         int temp = 0;
-                for (int value : values) {
-                while (temp < cells.length) {
-                    cells[temp++] = new Cell(value);
-                }
+        while (temp < cells.length) {
+            for (int value : values) {
+                if (value < 0)
+                    throw new IllegalArgumentException();
+                cells[temp++] = new Cell(value);
+            }
         }
     }
 
