@@ -97,4 +97,15 @@ public class Helper {
         return rows;
     }
 
+    public Row[] moveLeft(Row[] rows) {
+        Cell[] cell;
+        for (int i = 0; i < rows.length; i++) {
+            cell = rows[i].getCells();
+            ckeckFromEndToDownOrLeft(cell);
+            ckeckFromBeginningToDownOrLeft(cell);
+            rows[i].setCells(cell);
+        }
+        return rows;
+    }
+
 }
