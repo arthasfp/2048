@@ -288,17 +288,15 @@ public class HelperTest {
     }
 
 
-//    @Test
-//    public void test_isEmpty_method_for_not_empty_row() throws Exception {
-//        Row row = new Row(0, 6, 0, 0);
-//        Row result = isEmpty(row);
-//        assertFalse(result);
-//    }
-//
-//    @Test
-//    public void test_isEmpty_method_for_empty_row() throws Exception {
-//        Row row = new Row(0, 0, 0, 0);
-//        Row result = isEmpty(row);
-//        assertTrue(result);
-//    }
+    @Test
+    public void test_isEmpty_method_for_empty_field() throws Exception {
+        Helper helper = new Helper();
+        assertTrue(helper.isFieldEmpty(new Row[]{new Row(0, 0, 0), new Row(0, 0, 0), new Row(0, 0, 0)}));
+    }
+
+    @Test
+    public void test_isEmpty_method_for_not_empty_field() throws Exception {
+        Helper helper = new Helper();
+        assertFalse(helper.isFieldEmpty(new Row[]{new Row(0, 0, 0), new Row(2, 0, 0), new Row(0, 0, 0)}));
+    }
 }

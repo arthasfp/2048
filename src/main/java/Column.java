@@ -1,8 +1,5 @@
 import java.util.Arrays;
 
-/**
- * Created by Sergii on 27.05.2015.
- */
 public class Column {
     private Cell[] cells;
 

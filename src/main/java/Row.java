@@ -1,6 +1,5 @@
 import java.util.Arrays;
 
-
 public class Row {
     private Cell[] cells;
 

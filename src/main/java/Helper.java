@@ -1,4 +1,3 @@
-
 public class Helper {
 
     public Column[] moveUp(Column[] columns) {
@@ -106,6 +105,17 @@ public class Helper {
             rows[i].setCells(cell);
         }
         return rows;
+    }
+
+    public boolean isFieldEmpty(Row[] rows) {
+        for (int i = 0; i < rows.length; i++) {
+            Cell[] cells = rows[i].getCells();
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[j].getValue() != 0)
+                    return false;
+            }
+        }
+        return true;
     }
 
 }

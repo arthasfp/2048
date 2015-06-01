@@ -1,26 +1,25 @@
 import java.util.Arrays;
 
-/**
- * Created by Sergii on 27.05.2015.
- */
 public class Field {
-    Row[] rows;
-    Column[] columns;
+    private Row[] rows;
+    private Column[] columns;
+    private Cell[][] cells;
 
     public Field(int sizeOfField) {
-        Cell[][] cells = new Cell[sizeOfField][sizeOfField];
-
+        cells = new Cell[sizeOfField][sizeOfField];
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 cells[i][j] = new Cell(0);
-                rows[i].setCells(cells[i]);
-                columns[i].setCells(cells[j]);
             }
         }
-
     }
 
-    public Row[] getRows() {
+    public Row[] getRows(Field field) {
+        for (int i = 0; i < field.getCells().length; i++) {
+            for (int j = 0; j < field.getCells().length; j++) {
+                rows[i].setCells(cells[i]);
+            }
+        }
         return rows;
     }
 
@@ -28,12 +27,25 @@ public class Field {
         this.rows = rows;
     }
 
-    public Column[] getColumns() {
+    public Column[] getColumns(Field field) {
+        for (int i = 0; i < field.getCells().length; i++) {
+            for (int j = 0; j < field.getCells().length; j++) {
+                columns[i].setCells(cells[j]);
+            }
+        }
         return columns;
     }
 
     public void setColumns(Column[] columns) {
         this.columns = columns;
+    }
+
+    public Cell[][] getCells() {
+        return cells;
+    }
+
+    public void setCells(Cell[][] cells) {
+        this.cells = cells;
     }
 
     @Override
