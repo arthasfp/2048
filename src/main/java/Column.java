@@ -11,12 +11,12 @@ public class Column {
         int temp = 0;
         while (temp < cells.length) {
         for (int value : values) {
-
-                cells[temp++] = new Cell(value);
+            if(value < 0)
+                throw new IllegalArgumentException();
+            cells[temp++] = new Cell(value);
             }
         }
     }
-
 
     public Cell[] getCells() {
         return cells;
@@ -30,12 +30,9 @@ public class Column {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Column column = (Column) o;
-
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
         return Arrays.equals(cells, column.cells);
-
     }
 
     @Override
@@ -49,6 +46,5 @@ public class Column {
                 "cells=" + Arrays.toString(cells) +
                 '}';
     }
-
 
 }
