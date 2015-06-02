@@ -3,23 +3,32 @@ import java.util.Arrays;
 public class Field {
     private Row[] rows;
     private Column[] columns;
-    private Cell[][] cells;
 
     public Field(int sizeOfField) {
-        cells = new Cell[sizeOfField][sizeOfField];
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
+        Cell[][] cells = new Cell[sizeOfField][sizeOfField];
+        rows = new Row[sizeOfField];
+        columns = new Column[sizeOfField];
+        for (int i = 0; i < sizeOfField; i++) {
+            for (int j = 0; j < sizeOfField; j++) {
                 cells[i][j] = new Cell(0);
+            }
+        }
+        for (int i = 0; i < sizeOfField; i++) {
+            for (int j = 0; j < sizeOfField; j++) {
+                rows[i] = new Row();
+                rows[i].setCells(cells[i]);
+
+            }
+        }
+        for (int i = 0; i < sizeOfField; i++) {
+            for (int j = 0; j < sizeOfField; j++) {
+                columns[i] = new Column();
+                columns[i].setCells(cells[j]);
             }
         }
     }
 
-    public Row[] getRows(Field field) {
-        for (int i = 0; i < field.getCells().length; i++) {
-            for (int j = 0; j < field.getCells().length; j++) {
-                rows[i].setCells(cells[i]);
-            }
-        }
+    public Row[] getRows() {
         return rows;
     }
 
@@ -27,25 +36,12 @@ public class Field {
         this.rows = rows;
     }
 
-    public Column[] getColumns(Field field) {
-        for (int i = 0; i < field.getCells().length; i++) {
-            for (int j = 0; j < field.getCells().length; j++) {
-                columns[i].setCells(cells[j]);
-            }
-        }
+    public Column[] getColumns() {
         return columns;
     }
 
     public void setColumns(Column[] columns) {
         this.columns = columns;
-    }
-
-    public Cell[][] getCells() {
-        return cells;
-    }
-
-    public void setCells(Cell[][] cells) {
-        this.cells = cells;
     }
 
     @Override
@@ -71,9 +67,15 @@ public class Field {
 
     @Override
     public String toString() {
-        return "Field{" +
-                "rows=" + Arrays.toString(rows) +
-                ", columns=" + Arrays.toString(columns) +
-                '}';
+        String result = "";
+        for (int i = 0; i < rows.length; i++) {
+            result += "\n";
+            for (int j = 0; j < rows.length; j++) {
+                Cell[] cells = rows[i].getCells();
+                result += " " + cells[i].getValue();
+            }
+        }
+        return result;
     }
 }
+

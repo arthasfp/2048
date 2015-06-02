@@ -118,4 +118,16 @@ public class Helper {
         return true;
     }
 
+    public Row[] putTwoInRandomPosition(Row[] rows) {
+        int randomCell = 0;
+        while (randomCell < rows.length) {
+            randomCell = (int) Math.random() * 10;
+        }
+        for (int i = 0; i < rows.length; i++) {
+            Cell[] cells = rows[i].getCells();
+            if (i == randomCell)
+                cells[i].setValue(randomCell);
+        }
+        return rows;
+    }
 }
