@@ -6,10 +6,10 @@ public class GameUI {
         Helper helper = new Helper();
         Scanner scanner = new Scanner(System.in);
 
-        while (helper.isFieldEmpty(field.getRows())){
+        while (helper.isFieldEmpty(field.getRows())|| helper.isFieldEmpty(field.getColumns())){
             System.out.println("Push W to move up\nPush S to move down\nPush A to move left\nPush D to move right");
-            System.out.println(field.toString());
             helper.putTwoInRandomPosition(field.getRows());
+            System.out.println(field.toString());
             String some = scanner.nextLine();
             if (some.equals("W"))
                 helper.moveUp(field.getColumns());

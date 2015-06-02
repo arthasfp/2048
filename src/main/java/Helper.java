@@ -118,9 +118,20 @@ public class Helper {
         return true;
     }
 
+    public boolean isFieldEmpty(Column[] columns) {
+        for (int i = 0; i < columns.length; i++) {
+            Cell[] cells = columns[i].getCells();
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[j].getValue() != 0)
+                    return false;
+            }
+        }
+        return true;
+    }
+
     public Row[] putTwoInRandomPosition(Row[] rows) {
 //        int randomCell = 0;
-//        while (randomCell < rows.length) {
+//        if (randomCell < rows.length) {
 //            randomCell = (int) Math.random() * 10;
 //        }
 //        for (int i = 0; i < rows.length; i++) {
@@ -128,6 +139,9 @@ public class Helper {
 //            if (i == randomCell)
 //                cells[i].setValue(randomCell);
 //        }
+        for (int i = 0; i < rows.length; i++) {
+            rows[i] = new Row(2, 0, 0, 0);
+        }
         return rows;
     }
 }
